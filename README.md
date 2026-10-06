@@ -6,7 +6,7 @@
 
 Recompiling the original Xbox release of **Spider-Man 2** for native execution on modern Windows systems.
 
-**Early Development · In-Game · Rendering & Stability Work in Progress**
+**Early Development · In-Game · Major Rendering Issues Resolved · Stability Testing Ongoing**
 
 </div>
 
@@ -18,11 +18,13 @@ Recompiling the original Xbox release of **Spider-Man 2** for native execution o
 
 The project aims to execute the original game code natively while recreating the Xbox runtime and hardware-facing behaviour required by the game on modern PC hardware.
 
-Development is currently at an early stage. The recompiled game is capable of reaching **in-game execution**, representing a major initial milestone, but significant graphical issues and runtime instability remain.
+Development remains at an early stage, but the project has progressed significantly beyond initial in-game execution. Major graphical glitches encountered during early development have now been resolved, and current builds have demonstrated stable gameplay through at least **Chapters 1–3** during testing.
 
-Rendering accuracy, Xbox graphics compatibility and overall stability are the current development priorities.
+Rendering accuracy, broader game compatibility and remaining runtime functionality are still being validated.
 
-> **This project is under active development and is not currently considered playable.**
+One known issue currently affects the **save system** and requires further investigation and correction.
+
+> **This project is under active development and is not yet considered release-ready.**
 
 ---
 
@@ -33,23 +35,28 @@ Rendering accuracy, Xbox graphics compatibility and overall stability are the cu
 | Recompiled game execution | ✅ In-game |
 | Xbox runtime / kernel compatibility | 🟡 In development |
 | XBE loading | 🟢 Implemented |
-| Direct3D 11 rendering | 🟡 In development |
-| Software rendering path | 🟡 In development |
-| Texture & render-target handling | 🟡 In development |
-| Controller input | 🟡 In development |
-| Keyboard input | 🟡 In development |
-| Audio | 🟡 In development |
-| Runtime stability | 🔴 Early development |
+| Direct3D 11 rendering | 🟢 Functional |
+| Software rendering path | 🟢 Functional |
+| Texture & render-target handling | 🟢 Functional |
+| Controller input | 🟢 Functional |
+| Keyboard input | 🟢 Functional |
+| Audio | 🟢 Functional |
+| Runtime stability | 🟢 Stable through tested Chapters 1–3 |
+| Save system | 🔴 Known issue |
 
-Current internal builds can execute the game environment, but users should expect significant rendering errors, incomplete graphical behaviour and crashes.
+Current internal builds are capable of sustained in-game execution, with the major graphical corruption present during earlier development now resolved.
 
-The present focus is **correctness and stability rather than release readiness**.
+Testing through **Chapters 1–3** has so far shown stable runtime behaviour. However, later portions of the game have not yet been validated to the same extent, and additional compatibility issues may still be discovered as testing progresses.
+
+The **save system currently contains a known bug** and remains one of the primary issues requiring further development.
+
+The present focus is on **game-wide validation, save functionality and remaining compatibility issues rather than initial bring-up**.
 
 ---
 
 ## Development Progress
 
-SM2-Recomp has progressed rapidly from initial executable analysis and recompilation to in-game execution.
+SM2-Recomp has progressed rapidly from initial executable analysis and recompilation to sustained in-game execution.
 
 Within the project's **first five days of development**, work progressed through:
 
@@ -65,17 +72,23 @@ Within the project's **first five days of development**, work progressed through
 - In-game execution
 - Runtime diagnostics and profiling
 
-Reaching the game environment is an important milestone, but substantial engineering work remains before the recompilation accurately reproduces the behaviour of the original Xbox release.
+Development since then has focused heavily on correcting rendering behaviour and improving runtime compatibility.
+
+Major graphical glitches affecting early builds have now been resolved, allowing substantially more accurate in-game rendering.
+
+Runtime testing has also progressed through at least **Chapters 1–3**, with current builds remaining stable throughout the tested sections.
+
+Further testing is required across the remainder of the game to identify any additional runtime, rendering or compatibility issues.
 
 ---
 
 ## Rendering
 
-Graphics compatibility is currently one of the project's primary areas of development.
+Graphics compatibility has been one of the project's primary areas of development.
 
-SM2-Recomp includes an experimental **Direct3D 11 rendering backend** intended to translate the rendering behaviour expected by the original Xbox title to modern Windows graphics hardware.
+SM2-Recomp includes a **Direct3D 11 rendering backend** that translates the rendering behaviour expected by the original Xbox title to modern Windows graphics hardware.
 
-Current graphics development includes work on:
+Graphics implementation includes support for:
 
 - Triangle rasterisation
 - Depth testing
@@ -89,19 +102,23 @@ Current graphics development includes work on:
 - Visibility and occlusion behaviour
 - Framebuffer and presentation handling
 
-A software rendering path is also used for development, comparison and fallback behaviour.
+A software rendering path is also available for development, comparison and fallback behaviour.
 
-The game can currently render in-game scenes; however, **rendering is not yet accurate**. Significant graphical corruption, missing or incorrect effects and other visual issues remain under investigation.
+The major graphical corruption encountered during earlier development has now been resolved, and current builds are capable of rendering gameplay correctly across the portions of the game tested so far.
+
+Rendering work is not considered completely finished. Additional edge cases, effects or game-specific behaviour may still be discovered as testing expands into later chapters and less frequently encountered rendering paths.
 
 ---
 
 ## Stability
 
-Runtime stability remains an active area of development.
+Runtime stability has improved substantially.
 
-As progressively more of the original game becomes executable, additional interactions between the game and the recreated Xbox environment are exposed. Some of this behaviour is incomplete or not yet accurately reproduced.
+Current builds have been tested through at least **Chapters 1–3** without the significant runtime instability encountered during earlier development.
 
-Current development builds may therefore crash or encounter unexpected behaviour during execution.
+This represents an important milestone, although it does not yet guarantee stability across the entire game.
+
+As additional chapters, missions, cutscenes and gameplay systems are tested, previously unexercised interactions between the original game and the recreated Xbox environment may expose further compatibility issues.
 
 The project includes diagnostic infrastructure for investigating these issues, including:
 
@@ -113,7 +130,19 @@ The project includes diagnostic infrastructure for investigating these issues, i
 - Rasteriser statistics
 - Crash and stability investigation tools
 
-These systems are being used to progressively improve runtime correctness.
+These systems continue to be used for game-wide compatibility testing and regression investigation.
+
+---
+
+## Save System
+
+The save system currently contains a **known bug** and is one of the primary outstanding issues.
+
+While gameplay execution and runtime stability have improved significantly, save functionality is not yet considered reliable.
+
+Investigation is ongoing into the interaction between the original game's save behaviour and the recreated Xbox runtime environment.
+
+Until this issue is resolved, users should not assume that game progress can be saved or restored correctly.
 
 ---
 
@@ -153,9 +182,9 @@ Proper attribution and upstream project links will be maintained as the project 
 
 The source code and development builds are **not currently publicly available**.
 
-Development is presently focused on improving rendering accuracy and runtime stability before the project is opened for broader testing and development.
+Development is presently focused on validating the game beyond the currently tested chapters, resolving the save-system issue and identifying any remaining runtime or compatibility problems before the project is opened for broader testing and development.
 
-The intention is to make SM2-Recomp available once it reaches a more useful baseline for testing, experimentation and contribution.
+The intention is to make SM2-Recomp available once it reaches a sufficiently reliable baseline for testing, experimentation and contribution.
 
 **No release date is currently being announced.**
 
@@ -175,13 +204,14 @@ Users are responsible for supplying game data from their own copy of the origina
 
 Development is currently focused on:
 
-1. Improving rendering correctness
-2. Improving Xbox graphics compatibility
-3. Identifying and resolving in-game crashes
-4. Improving overall runtime stability
-5. Validating controller and gameplay input
-6. Improving audio and runtime compatibility
-7. Establishing a stable baseline for broader testing
+1. Fixing the save-system bug
+2. Testing stability beyond Chapters 1–3
+3. Validating game-wide rendering correctness
+4. Identifying remaining Xbox runtime compatibility issues
+5. Testing later missions, cutscenes and gameplay systems
+6. Validating controller, keyboard and gameplay input behaviour
+7. Testing audio behaviour across the full game
+8. Establishing a stable baseline for broader testing
 
 ---
 
@@ -191,9 +221,13 @@ Development is currently focused on:
 
 SM2-Recomp is currently a development project rather than a finished PC port.
 
-In-game execution has been achieved, but significant rendering and stability work remains. Current builds should be expected to contain graphical errors, crashes, incomplete functionality and behaviour that differs from the original Xbox release.
+The project is capable of sustained in-game execution, and the major graphical glitches affecting earlier builds have been resolved.
 
-Development progress and significant milestones will be documented here as the project advances.
+Current testing has demonstrated stable gameplay through at least **Chapters 1–3**. Testing of later portions of the game remains ongoing, so undiscovered compatibility issues may still exist.
+
+The primary known functional issue at present is the **save system**, which requires further development before save functionality can be considered reliable.
+
+Development progress and significant milestones will continue to be documented here as the project advances.
 
 ---
 
