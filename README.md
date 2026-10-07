@@ -168,11 +168,11 @@ Development includes a dedicated Windows launcher and supporting analysis, diagn
 
 ---
 
-## XboxDecomp
+## XboxRecomp
 
-SM2-Recomp was initially bootstrapped using foundational Xbox kernel and runtime work from the **XboxDecomp** project.
+SM2-Recomp was initially bootstrapped using foundational Xbox kernel and runtime work from the **XboxRecomp** project by sp00nznet.
 
-This provided an important starting point for executing recompiled Xbox software, with additional Spider-Man 2-specific runtime, graphics, input, audio and compatibility work being developed as the project progresses.
+This provided an important starting point for executing recompiled Xbox software, with additional Spider-Man 2-specific runtime, graphics, input, audio and compatibility work being developed for this project specifically.
 
 Proper attribution and upstream project links will be maintained as the project develops.
 
