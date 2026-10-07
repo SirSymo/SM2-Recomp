@@ -4,9 +4,11 @@
 
 ### Experimental native recompilation for modern Windows
 
-Recompiling the original Xbox release of **Spider-Man 2** for native execution on modern Windows systems.
+SM2-Recomp is an unofficial project that recompiles the original Xbox release of Spider-Man 2 for native execution on modern Windows systems.
 
-**Early Development · In-Game · Major Rendering Issues Resolved · Stability Testing Ongoing**
+**Early Development · In-Game · Bug fixes ongoing**
+
+**https://sm2-recomp.app**
 
 </div>
 
@@ -14,17 +16,17 @@ Recompiling the original Xbox release of **Spider-Man 2** for native execution o
 
 ## About
 
-**SM2-Recomp** is an experimental native recompilation project for the original Xbox version of *Spider-Man 2*, targeting modern Windows systems.
+**SM2-Recomp** is an experimental native recompilation project for the original Xbox version of Spider-Man 2.
 
-The project aims to execute the original game code natively while recreating the Xbox runtime and hardware-facing behaviour required by the game on modern PC hardware.
+The project translates code from a user-supplied original Xbox executable into native code and provides the Xbox-facing runtime behaviour needed by the game on modern Windows systems.
 
-Development remains at an early stage, but the project has progressed significantly beyond initial in-game execution. Major graphical glitches encountered during early development have now been resolved, and current builds have demonstrated stable gameplay through at least **Chapters 1–3** during testing.
+The project does not distribute the original Spider-Man 2 Xbox executable, original game data, or extracted game media assets. A compatible copy of the original Xbox release is required.
 
-Rendering accuracy, broader game compatibility and remaining runtime functionality are still being validated.
+Development is still active. Current builds have demonstrated sustained in-game execution through at least Chapters 1–3 during testing, and the major rendering corruption seen during early development has been resolved.
 
-One known issue currently affects the **save system** and requires further investigation and correction.
+Broader game compatibility, save behaviour, rendering edge cases, and later-game stability are still being validated.
 
-> **This project is under active development and is not yet considered release-ready.**
+> **SM2-Recomp is experimental software and is not yet considered release-ready.**
 
 ---
 
@@ -40,11 +42,12 @@ One known issue currently affects the **save system** and requires further inves
 | Texture & render-target handling | 🟢 Functional |
 | Controller input | 🟢 Functional |
 | Keyboard input | 🟢 Functional |
+| Mouse input | 🔴 Not Implimented |
 | Audio | 🟢 Functional |
 | Runtime stability | 🟢 Stable through tested Chapters 1–3 |
-| Save system | 🔴 Known issue |
+| Save system | 🟢 Implimented |
 
-Current internal builds are capable of sustained in-game execution, with the major graphical corruption present during earlier development now resolved.
+Current internal builds are capable of sustained in-game execution, with the major graphical render issues of earlier builds resolved.
 
 Testing through **Chapters 1–3** has so far shown stable runtime behaviour. However, later portions of the game have not yet been validated to the same extent, and additional compatibility issues may still be discovered as testing progresses.
 
@@ -58,7 +61,7 @@ The present focus is on **game-wide validation, save functionality and remaining
 
 SM2-Recomp has progressed rapidly from initial executable analysis and recompilation to sustained in-game execution.
 
-Within the project's **first five days of development**, work progressed through:
+So far work has progressed through:
 
 - Xbox executable analysis and recompilation
 - Xbox kernel/runtime bring-up
@@ -76,7 +79,7 @@ Development since then has focused heavily on correcting rendering behaviour and
 
 Major graphical glitches affecting early builds have now been resolved, allowing substantially more accurate in-game rendering.
 
-Runtime testing has also progressed through at least **Chapters 1–3**, with current builds remaining stable throughout the tested sections.
+Runtime testing has also progressed through at least **Chapters 1–3**, with current builds appearing to remain stable throughout the tested sections.
 
 Further testing is required across the remainder of the game to identify any additional runtime, rendering or compatibility issues.
 
@@ -110,47 +113,21 @@ Rendering work is not considered completely finished. Additional edge cases, eff
 
 ---
 
-## Stability
-
-Runtime stability has improved substantially.
-
-Current builds have been tested through at least **Chapters 1–3** without the significant runtime instability encountered during earlier development.
-
-This represents an important milestone, although it does not yet guarantee stability across the entire game.
-
-As additional chapters, missions, cutscenes and gameplay systems are tested, previously unexercised interactions between the original game and the recreated Xbox environment may expose further compatibility issues.
-
-The project includes diagnostic infrastructure for investigating these issues, including:
-
-- Runtime logging
-- Graphics tracing
-- Frame-level diagnostics
-- Kernel-call diagnostics
-- Performance profiling
-- Rasteriser statistics
-- Crash and stability investigation tools
-
-These systems continue to be used for game-wide compatibility testing and regression investigation.
-
----
-
 ## Save System
 
-The save system currently contains a **known bug** and is one of the primary outstanding issues.
+The save system has been under active investigation.
 
-While gameplay execution and runtime stability have improved significantly, save functionality is not yet considered reliable.
-
-Investigation is ongoing into the interaction between the original game's save behaviour and the recreated Xbox runtime environment.
-
-Until this issue is resolved, users should not assume that game progress can be saved or restored correctly.
+A fix has been implemented for asynchronous save-file read behaviour that differed from the original Xbox environment. Broader validation is still ongoing, so save functionality should currently be treated as experimental.
 
 ---
 
 ## Technical Overview
 
-SM2-Recomp uses **static recompilation** to translate the original Xbox game's x86 code for execution on modern Windows systems.
+SM2-Recomp uses static recompilation.
 
-A compatibility runtime provides the Xbox kernel services and hardware-facing functionality expected by the original executable, while modern implementations provide graphics, audio and input functionality.
+The build process analyses a user-supplied Spider-Man 2 Xbox executable and uses that input to generate native code locally. The repository itself does not need to contain a copy of the original XBE.
+
+A compatibility runtime supplies the Xbox kernel services and hardware-facing functionality expected by the game, while modern implementations provide graphics, audio, input, and host integration.
 
 ### Current Technology
 
@@ -170,33 +147,37 @@ Development includes a dedicated Windows launcher and supporting analysis, diagn
 
 ## XboxRecomp
 
-SM2-Recomp was initially bootstrapped using foundational Xbox kernel and runtime work from the **XboxRecomp** project by sp00nznet.
+SM2-Recomp builds on XboxRecomp by sp00nznet and its contributors.
 
-This provided an important starting point for executing recompiled Xbox software, with additional Spider-Man 2-specific runtime, graphics, input, audio and compatibility work being developed for this project specifically.
+XboxRecomp provides the underlying Xbox static-recompilation toolchain and runtime components used during the build and execution process.
 
-Proper attribution and upstream project links will be maintained as the project develops.
+SM2-Recomp adds Spider-Man 2-specific integration, compatibility work, graphics behaviour, input and audio fixes, launcher functionality, diagnostics, and title-specific runtime handling.
 
----
+XboxRecomp and its third-party components remain subject to their own upstream licences.
 
-## Source Code & Builds
+Upstream project:
 
-The source code and development builds are **not currently publicly available**.
+https://github.com/sp00nznet/xboxrecomp
 
-Development is presently focused on validating the game beyond the currently tested chapters, resolving the save-system issue and identifying any remaining runtime or compatibility problems before the project is opened for broader testing and development.
-
-The intention is to make SM2-Recomp available once it reaches a sufficiently reliable baseline for testing, experimentation and contribution.
-
-**No release date is currently being announced.**
+See THIRD_PARTY_NOTICES.md for attribution and licensing details.
 
 ---
 
 ## Original Game Required
 
-SM2-Recomp does **not** contain or distribute *Spider-Man 2*, its original Xbox executable, or copyrighted game assets.
+SM2-Recomp does **not** include or distribute:
 
-A compatible copy of the original Xbox game data will be required to use the project.
+- the original Spider-Man 2 Xbox executable
+- original game data archives
+- extracted textures, models, audio, video, or other game media
+- a complete copy of the original game
 
-Users are responsible for supplying game data from their own copy of the original release.
+Users must provide the required game files separately from a copy to which they have lawful access.
+
+The current build process expects a compatible Xbox executable and the corresponding game data.
+
+SM2-Recomp does not grant any rights in Spider-Man 2 or other third-party game material.
+
 
 ---
 
@@ -204,7 +185,7 @@ Users are responsible for supplying game data from their own copy of the origina
 
 Development is currently focused on:
 
-1. Fixing the save-system bug
+1. Animation and additional render bugs
 2. Testing stability beyond Chapters 1–3
 3. Validating game-wide rendering correctness
 4. Identifying remaining Xbox runtime compatibility issues
@@ -219,25 +200,44 @@ Development is currently focused on:
 
 > **Experimental — Active Development**
 
-SM2-Recomp is currently a development project rather than a finished PC port.
+SM2-Recomp is a development project, not a finished PC port.
 
-The project is capable of sustained in-game execution, and the major graphical glitches affecting earlier builds have been resolved.
+Current builds are capable of sustained in-game execution, and major rendering issues affecting earlier builds have been resolved. Testing of later portions of the game is still ongoing, and undiscovered compatibility issues should be expected.
 
-Current testing has demonstrated stable gameplay through at least **Chapters 1–3**. Testing of later portions of the game remains ongoing, so undiscovered compatibility issues may still exist.
+Development milestones and public release information will be documented through the project's official channels.
 
-The primary known functional issue at present is the **save system**, which requires further development before save functionality can be considered reliable.
+---
 
-Development progress and significant milestones will continue to be documented here as the project advances.
+## Source Availability
+
+SM2-Recomp's original project code and project-owned assets will initially be released under the SM2-Recomp Source-Available Personal Use License.
+
+This initial licence is intended to support public access to the source for personal use, study, experimentation, private modification, and contribution while the project remains under active development.
+
+The licensing model may change as SM2-Recomp matures and reaches a more stable state. Future versions of SM2-Recomp may therefore be released under different or more permissive licence terms.
+
+Any future change in licensing will apply as stated to the relevant release and does not, by itself, alter the licence terms that applied to an earlier copy or version when it was provided.
+
+Redistribution and other uses of SM2-Recomp Project Materials are governed by LICENSE.md.
+
+Third-party components are not relicensed under the SM2-Recomp licence and remain subject to their respective upstream licences.
+
+See:
+
+- LICENSE.md
+- THIRD_PARTY_NOTICES.md
 
 ---
 
 ## Disclaimer
 
-SM2-Recomp is an unofficial, fan-developed project and is not affiliated with or endorsed by Activision, Treyarch, Marvel, Microsoft or any other rights holder associated with *Spider-Man 2*.
+SM2-Recomp is an unofficial, fan-developed project.
 
-All trademarks, characters, game content and other copyrighted materials belong to their respective owners.
+It is not affiliated with, authorised by, sponsored by, or endorsed by Activision, Treyarch, Marvel, Microsoft, or any other rights holder associated with Spider-Man 2.
 
-SM2-Recomp does not distribute copyrighted game content and is intended to operate using game data supplied separately by the user.
+Spider-Man, Spider-Man 2, Xbox, and all other third-party names, characters, trademarks, game content, and intellectual property remain the property of their respective rights holders.
+
+The SM2-Recomp licence applies only to material for which the SM2-Recomp licensor has authority to grant rights. Third-party material remains subject to its own applicable rights and licence terms.
 
 ---
 
@@ -245,6 +245,6 @@ SM2-Recomp does not distribute copyrighted game content and is intended to opera
 
 **Spider-Man 2 — Xbox Recomp**
 
-*Preserving the original Xbox release through native recompilation.*
+*Exploring native recompilation of the original Xbox release on modern Windows.*
 
 </div>
