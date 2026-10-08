@@ -1,9 +1,9 @@
 # SM2-Recomp Source-Available Personal Use License
-## Version 1.0
+## Version 1.1
 
 Copyright © 2026 Sir Symo (also known as Symo). All rights reserved.
 
-For the purposes of this licence, “Licensor” means the individual who publishes and maintains SM2-Recomp under the name “Sir Symo”, also known as “Symo”.
+For the purposes of this licence, “Licensor” means the individual known publicly as “Sir Symo” (also known as “Symo”), who is responsible for publishing SM2-Recomp and granting this licence.
 
 ## 1. SM2-Recomp Materials
 
@@ -17,9 +17,9 @@ Third-party material is excluded and remains subject to its own applicable copyr
 
 ## 2. Personal Use
 
-You may access, download, study, compile, run, test, modify, and otherwise use the SM2-Recomp Materials for your own private and personal purposes.
+You may access, download, compile, run, test, modify, and otherwise use the SM2-Recomp Materials for your own private and personal purposes.
 
-You may maintain private modified copies, private source-control repositories, and reasonable backup copies.
+You may maintain private modified copies and reasonable backup copies.
 
 You may also submit fixes, improvements, and other contributions to the official SM2-Recomp project.
 
@@ -29,7 +29,7 @@ These permissions do not include redistribution or reuse in another project exce
 
 You may not redistribute, republish, mirror, sublicense, transfer, or otherwise provide the SM2-Recomp Materials, or modified versions of them, to another person or to the public without prior written permission from the Licensor.
 
-This includes modified public releases, mirrors, source archives, compiled distributions, and substantially complete copies of the project.
+This includes modified public releases, mirrors, source archives, compiled distributions, and complete or partially complete copies of the project.
 
 Private modifications, backups, and private source-control repositories accessible only to you are permitted.
 
@@ -37,7 +37,7 @@ Nothing in this section restricts rights independently granted under an applicab
 
 ## 4. Use in Other Projects
 
-You may not copy, incorporate, adapt, or reuse substantial portions of the SM2-Recomp Materials in another project, application, tool, utility, library, or software product without prior written permission from the Licensor.
+You may not copy, incorporate, adapt, or reuse SM2-Recomp Materials in another project, application, tool, utility, library, or software product without prior written permission from the Licensor.
 
 This applies equally to SM2-Recomp itself and to accompanying software developed by the Licensor, including launchers, file-format tools, extraction or repacking utilities, converters, build tools, and other project utilities.
 
@@ -53,7 +53,7 @@ You may publicly discuss, review, document, analyse, or demonstrate SM2-Recomp.
 
 Reasonable excerpts of the SM2-Recomp Materials may be shown where genuinely necessary for discussion, reviews, tutorials, bug reports, technical analysis, criticism, or documentation.
 
-Small excerpts must not be used as a means of reconstructing or redistributing a substantial portion of the SM2-Recomp Materials.
+Small excerpts must not be used as a means of reconstructing or redistributing SM2-Recomp Materials.
 
 You may create and publish screenshots, videos, demonstrations, tutorials, streams, articles, and reviews showing SM2-Recomp or its accompanying software in operation.
 
@@ -65,9 +65,7 @@ Nothing in this licence limits rights you independently have under applicable la
 
 If you intentionally submit source code, documentation, fixes, improvements, artwork, or other material for inclusion in the official SM2-Recomp project, you confirm that you have the right to submit that material.
 
-You retain ownership of material that you originally create.
-
-By submitting a contribution for inclusion in SM2-Recomp, you grant the Licensor a perpetual, worldwide, non-exclusive, irrevocable, royalty-free licence to use, reproduce, modify, adapt, distribute, sublicense, and relicense that contribution as part of SM2-Recomp, its accompanying software, or a successor to the project.
+By submitting a contribution for inclusion in SM2-Recomp, you grant the Licensor a perpetual, worldwide, irrevocable, royalty-free licence to use, reproduce, modify, adapt, distribute, sublicense, and relicense that contribution as part of SM2-Recomp, its accompanying software, or a successor to the project.
 
 This allows accepted contributions to remain part of SM2-Recomp if the project's licensing model changes in the future.
 
@@ -95,9 +93,7 @@ Title-specific technical information, compatibility data, addresses, file-format
 
 ## 9. Project Identity
 
-Sir Symo is the canonical name under which SM2-Recomp is released and maintained.
-
-Symo is an alternative name used by the same individual.
+"Sir Symo" (or "Symo") is the canonical name under which SM2-Recomp is released and maintained.
 
 You may accurately refer to SM2-Recomp, Sir Symo, and Symo when discussing, reviewing, documenting, or identifying the project.
 
@@ -112,6 +108,10 @@ The Licensor may grant additional permission in writing for uses not otherwise p
 This may include permission to redistribute material, maintain an authorised fork, reuse SM2-Recomp code in another project, or create an alternative distribution.
 
 Permission granted to one person, organisation, or project does not automatically apply to anyone else.
+
+Any permission granted by the Licensor is strictly limited to the specific use, purpose, and circumstances expressly authorised in writing. Permission granted for one instance does not constitute or imply permission for any subsequent or different use, whether by the same person, organisation, or project, unless such use is expressly authorised in writing by the Licensor.
+
+Permissions granted by the Licensor is revocable by the Licensor for any breach of this license or any act, deliberate or otherwise, which may cause harm, detriment or disrepute to the Licensor.
 
 The Licensor may release future versions of SM2-Recomp or its accompanying software under different or more permissive licence terms.
 
