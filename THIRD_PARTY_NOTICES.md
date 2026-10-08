@@ -51,9 +51,9 @@ The generated sm2_gpu_ps.inc file contains generated shader data based on the HL
 
 These portions are treated as third-party-derived material rather than exclusively licensed SM2-Recomp Project Materials.
 
-Where the originating implementation is XboxRecomp MIT-licensed code, the applicable XboxRecomp copyright and MIT licence terms continue to apply.
+Any copyright-protected portions derived from third-party implementations remain subject to their respective original copyright notices and applicable licence terms.
 
-The exact originating upstream file and revision should be retained in the project history when that provenance is finalised.
+Where required by those terms, the relevant copyright notices, attribution, and licence information must be preserved. Nothing in this notice claims exclusive ownership of third-party-derived material.
 
 ## Barlow Font Family
 
